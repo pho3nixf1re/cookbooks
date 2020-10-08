@@ -19,12 +19,14 @@
     "@typescript-eslint"
   ],
   "rules": {
+    "import/order": "error",
     "react/jsx-boolean-value": [
       "error",
       "always"
     ],
     "react/no-multi-comp": "error",
     "react/self-closing-comp": "error",
+    "react/prop-types": "off",
     "@typescript-eslint/member-delimiter-style": [
       "error",
       {
