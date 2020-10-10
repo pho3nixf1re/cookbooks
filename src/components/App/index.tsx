@@ -1,5 +1,6 @@
 import { useAuth0 } from '@auth0/auth0-react'
 import React from 'react'
+import { Cookbooks } from '../Cookbooks'
 import { LoginButton } from '../LoginButton'
 import { LogoutButton } from '../LogoutButton'
 import { Profile } from '../Profile'
@@ -12,6 +13,7 @@ export function App() {
     <div className={styles.container}>
       {isAuthenticated ? <LogoutButton /> : <LoginButton />}
       <Profile />
+      {isAuthenticated && <Cookbooks />}
     </div>
   )
 }
