@@ -19,7 +19,11 @@
     "@typescript-eslint"
   ],
   "rules": {
-    "import/order": "error",
+    "import/order": ["error", {
+      "alphabetize": {
+        "order": "asc"
+      }
+    }],
     "react/jsx-boolean-value": [
       "error",
       "always"
