@@ -1,15 +1,11 @@
-import { useAuth0 } from '@auth0/auth0-react'
 import React from 'react'
-import { Authentication } from '../Authentication'
+import { Route, Routes } from 'react-router'
 import { Cookbooks } from '../Cookbooks'
+import { FrontDoor } from '../FrontDoor'
 
-export function App() {
-  const { isAuthenticated } = useAuth0()
-
-  return (
-    <div>
-      <Authentication />
-      {isAuthenticated && <Cookbooks />}
-    </div>
-  )
-}
+export const App = () => (
+  <Routes>
+    <Route path="/" element={<FrontDoor />} />
+    <Route path="/cookbooks" element={<Cookbooks />} />
+  </Routes>
+)

@@ -5,10 +5,12 @@ import ReactDOM from 'react-dom'
 import { App } from './components/App'
 import { withApolloProvider } from './hoc/with-apollo-provider'
 import { withAuthProvider } from './hoc/with-auth-provider'
+import { withRouterProvider } from './hoc/with-router-provider'
 import * as serviceWorker from './serviceWorker'
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-const RootApp = compose<any, any, any>(
+const RootApp = compose<any, any, any, any>(
+  withRouterProvider(),
   withAuthProvider(),
   withApolloProvider()
 )(App) as typeof App

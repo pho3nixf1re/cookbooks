@@ -6,6 +6,7 @@ export const query = gql`
       id
       name
       description
+      is_public
     }
   }
 `

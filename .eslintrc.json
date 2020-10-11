@@ -19,11 +19,14 @@
     "@typescript-eslint"
   ],
   "rules": {
-    "import/order": ["error", {
-      "alphabetize": {
-        "order": "asc"
+    "import/order": [
+      "error",
+      {
+        "alphabetize": {
+          "order": "asc"
+        }
       }
-    }],
+    ],
     "react/jsx-boolean-value": [
       "error",
       "always"
@@ -31,6 +34,7 @@
     "react/no-multi-comp": "error",
     "react/self-closing-comp": "error",
     "react/prop-types": "off",
+    "@typescript-eslint/no-unused-vars": "error",
     "@typescript-eslint/member-delimiter-style": [
       "error",
       {
