@@ -1,5 +1,4 @@
-import './sass/global.scss'
-
+import CssBaseline from '@material-ui/core/CssBaseline'
 import { compose } from 'ramda'
 import React from 'react'
 import ReactDOM from 'react-dom'
@@ -16,6 +15,7 @@ const RootApp = compose<any, any, any>(
 
 ReactDOM.render(
   <React.StrictMode>
+    <CssBaseline />
     <RootApp />
   </React.StrictMode>,
   document.getElementById('root')
