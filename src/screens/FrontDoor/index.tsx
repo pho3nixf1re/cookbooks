@@ -3,7 +3,7 @@ import { Avatar, Box, Button, Container, Typography } from '@material-ui/core'
 import { LockOutlined } from '@material-ui/icons'
 import React from 'react'
 import { Navigate } from 'react-router'
-import { Copyright } from '../Copyright'
+import { Copyright } from '../../components/Copyright'
 import { useStyles } from './styles'
 
 export function FrontDoor() {

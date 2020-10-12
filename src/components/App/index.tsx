@@ -1,8 +1,8 @@
 import React from 'react'
 import { Route, Routes } from 'react-router'
+import { Cookbooks } from '../../screens/Cookbooks'
+import { FrontDoor } from '../../screens/FrontDoor'
 import { AppLayout } from '../AppLayout'
-import { Cookbooks } from '../Cookbooks'
-import { FrontDoor } from '../FrontDoor'
 
 export const App = () => (
   <Routes>

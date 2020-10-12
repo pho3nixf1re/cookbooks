@@ -1,8 +1,8 @@
 import { useAuth0 } from '@auth0/auth0-react'
 import React from 'react'
+import { CookbookCard } from '../../components/CookbookCard'
+import { ScreenLoading } from '../../components/ScreenLoading'
 import { screenTitle } from '../../states/screen-title'
-import { CookbookCard } from '../CookbookCard'
-import { ScreenLoading } from '../ScreenLoading'
 import { useMyCookbooksQuery } from './helpers'
 import { useStyles } from './styles'
 
