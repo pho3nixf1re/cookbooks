@@ -1,4 +1,5 @@
 import { useAuth0 } from '@auth0/auth0-react'
+import { useState } from '@hookstate/core'
 import {
   AppBar,
   Toolbar,
@@ -11,13 +12,11 @@ import {
 import { Menu as MenuIcon } from '@material-ui/icons'
 import React from 'react'
 import { useMenuState } from '../../hooks/use-menu-state'
+import { screenTitle } from '../../states/screen-title'
 import { useStyles } from './styles'
 
-type Props = {
-  title: string
-}
-
-export function AppHeader({ title }: Props) {
+export function AppHeader() {
+  const title = useState(screenTitle)
   const { user, logout } = useAuth0()
   const initials = user.given_name?.[0] + user.family_name?.[0] || ''
   const classes = useStyles()
@@ -39,7 +38,7 @@ export function AppHeader({ title }: Props) {
           <MenuIcon />
         </IconButton>
         <Typography variant="h6" className={classes.title}>
-          {title}
+          {title.get()}
         </Typography>
         <div>
           <IconButton
