@@ -1,11 +1,9 @@
-import { useState, MouseEvent } from 'react'
+import { useState } from 'react'
 
 export function useMenuState() {
-  const [element, setElement] = useState<null | HTMLElement>(null)
-  const closeMenu = () => setElement(null)
-  const openMenu = (event: MouseEvent<HTMLElement>) =>
-    setElement(event.currentTarget)
-  const isOpen = Boolean(element)
+  const [isOpen, setOpen] = useState(false)
+  const closeMenu = () => setOpen(false)
+  const openMenu = () =>setOpen(true)
 
-  return { isOpen, closeMenu, openMenu, element }
+  return { isOpen, closeMenu, openMenu }
 }

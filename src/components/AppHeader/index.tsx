@@ -1,5 +1,4 @@
 import { useAuth0 } from '@auth0/auth0-react'
-import { useState } from '@hookstate/core'
 import {
   AppBar,
   Toolbar,
@@ -10,21 +9,25 @@ import {
   MenuItem,
 } from '@material-ui/core'
 import { Menu as MenuIcon } from '@material-ui/icons'
-import React from 'react'
+import React, { useRef } from 'react'
 import { useMenuState } from '../../hooks/use-menu-state'
-import { screenTitle } from '../../states/screen-title'
+import { useScreenTitleQuery } from './helpers'
 import { useStyles } from './styles'
 
 export function AppHeader() {
-  const title = useState(screenTitle)
+  const { screenTitle } = useScreenTitleQuery()
   const { user, logout } = useAuth0()
-  const initials = user.given_name?.[0] + user.family_name?.[0] || ''
   const classes = useStyles()
-  const { isOpen, closeMenu, openMenu, element } = useMenuState()
+  const menuAnchorRef = useRef<HTMLButtonElement>(null)
+  const { isOpen, closeMenu, openMenu } = useMenuState()
+
+  const initials = user.given_name?.[0] + user.family_name?.[0] || ''
+
   const handleLogout = () => {
     closeMenu()
     logout({ returnTo: window.location.origin })
   }
+
 
   return (
     <AppBar position="static">
@@ -38,7 +41,7 @@ export function AppHeader() {
           <MenuIcon />
         </IconButton>
         <Typography variant="h6" className={classes.title}>
-          {title.get()}
+          {screenTitle}
         </Typography>
         <div>
           <IconButton
@@ -47,6 +50,7 @@ export function AppHeader() {
             aria-haspopup="true"
             onClick={openMenu}
             color="inherit"
+            ref={menuAnchorRef}
           >
             <Avatar alt={user?.name} variant="circle" src={user?.picture}>
               {initials}
@@ -54,7 +58,7 @@ export function AppHeader() {
           </IconButton>
           <Menu
             id="menu-profile"
-            anchorEl={element}
+            anchorEl={menuAnchorRef.current}
             anchorOrigin={{
               vertical: 'top',
               horizontal: 'right',

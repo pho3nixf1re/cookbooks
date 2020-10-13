@@ -7,7 +7,7 @@ import { AppLayout } from '../AppLayout'
 export const App = () => (
   <Routes>
     <Route path="/" element={<AppLayout />}>
-      <Route path="cookbooks" element={<Cookbooks />} />
+      <Route path="/" element={<Cookbooks />} />
     </Route>
     <Route path="/welcome" element={<FrontDoor />} />
   </Routes>

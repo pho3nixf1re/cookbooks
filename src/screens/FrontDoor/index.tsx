@@ -4,11 +4,14 @@ import { LockOutlined } from '@material-ui/icons'
 import React from 'react'
 import { Navigate } from 'react-router'
 import { Copyright } from '../../components/Copyright'
+import { useScreenTitle } from '../../states/screen-title'
 import { useStyles } from './styles'
 
 export function FrontDoor() {
   const { isAuthenticated, loginWithRedirect: login } = useAuth0()
   const classes = useStyles()
+
+  useScreenTitle('Welcome')
 
   if (isAuthenticated) return <Navigate to="/cookbooks" replace={true} />
 

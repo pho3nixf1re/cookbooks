@@ -1,14 +1,9 @@
 import {
   ApolloClient,
   ApolloProvider,
-  from,
-  InMemoryCache,
   NormalizedCacheObject,
 } from '@apollo/client'
-import { BatchHttpLink } from '@apollo/client/link/batch-http'
-import { setContext } from '@apollo/client/link/context'
 import { useAuth0 } from '@auth0/auth0-react'
-import apolloLogger from 'apollo-link-logger'
 import React, {
   Fragment,
   MutableRefObject,
@@ -16,6 +11,7 @@ import React, {
   useEffect,
   useRef,
 } from 'react'
+import getApolloClient from '../lib/graphql'
 
 export const withApolloProvider = () => <P extends Record<string, unknown>>(
   Component: ComponentType<P>
@@ -41,37 +37,3 @@ export const withApolloProvider = () => <P extends Record<string, unknown>>(
       </ApolloProvider>
     )
   }
-
-export default function getApolloClient(
-  getAccessTokenSilently: (options: { audience: string }) => Promise<string>
-) {
-  const httpLink = new BatchHttpLink({
-    uri: process.env.REACT_APP_GRAPHQL_URI,
-  })
-
-  const authLink = setContext(async function authenticationLink(_, context) {
-    const token = await getAccessTokenSilently({
-      audience: 'https://cookbooks.feliciterra.com',
-    })
-
-    if (!token) return context
-
-    const newContext = {
-      headers: {
-        ...context.headers,
-        Authorization: `Bearer ${token}`,
-      },
-    }
-
-    return newContext
-  })
-
-  const links = [authLink, httpLink]
-  process.env.REACT_APP_LOG_GRAPHQL_QUERIES == 'true' &&
-    links.unshift(apolloLogger)
-
-  return new ApolloClient({
-    link: from(links),
-    cache: new InMemoryCache(),
-  })
-}
