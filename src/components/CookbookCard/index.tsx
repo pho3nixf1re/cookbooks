@@ -19,7 +19,7 @@ export function CookbookCard({ book }: Props) {
   const { name, description } = book
 
   return (
-    <Card className={classes.root}>
+    <Card>
       <CardActionArea>
         <CardContent>
           <Typography gutterBottom={true} variant="h5" component="h2">

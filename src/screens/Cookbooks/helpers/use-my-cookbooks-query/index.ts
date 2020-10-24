@@ -5,7 +5,7 @@ type Options = {
   userId: string
 }
 
-type Data = {
+export type Data = {
   books: Book[]
 }
 
