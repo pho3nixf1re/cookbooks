@@ -1,22 +1,21 @@
 import {
-  Button,
   Card,
   CardActionArea,
   CardActions,
   CardContent,
+  IconButton,
   Typography,
 } from '@material-ui/core'
-import { VisibilityOff } from '@material-ui/icons'
+import { Visibility, VisibilityOff } from '@material-ui/icons'
 import React from 'react'
-import { useStyles } from './styles'
+import { DeleteAction } from './DeleteAction'
 
 type Props = {
   book: Book
 }
 
 export function CookbookCard({ book }: Props) {
-  const classes = useStyles()
-  const { name, description } = book
+  const { id, name, description } = book
 
   return (
     <Card>
@@ -31,14 +30,7 @@ export function CookbookCard({ book }: Props) {
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <IconButton
-          size="small"
-          color="secondary"
-          onClick={handleRemove}
-          aria-label="delete"
-        >
-          <Delete />
-        </IconButton>
+        <DeleteAction bookId={id} />
         <IconButton
           size="small"
           color="primary"

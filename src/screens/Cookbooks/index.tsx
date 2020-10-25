@@ -1,5 +1,5 @@
 import { useAuth0 } from '@auth0/auth0-react'
-import React from 'react'
+import React, { useState } from 'react'
 import { AddCard } from '../../components/AddCard'
 import { AddCookbookDialog } from '../../components/AddCookbookDialog'
 import { CookbookCard } from '../../components/CookbookCard'
@@ -11,7 +11,7 @@ import { useStyles } from './styles'
 export function Cookbooks() {
   const { user } = useAuth0()
   const classes = useStyles()
-  const [open, setOpen] = React.useState(false)
+  const [open, setOpen] = useState(false)
 
   const handleClose = (): void => setOpen(false)
 
