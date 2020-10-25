@@ -30,16 +30,22 @@ export function CookbookCard({ book }: Props) {
           </Typography>
         </CardContent>
       </CardActionArea>
-      <CardActions disableSpacing={true}>
-        <Button size="small" color="primary">
-          Sharing
-        </Button>
-        <Button size="small" color="primary">
-          View
-        </Button>
-        {!book.is_public && (
-          <VisibilityOff className={classes.publicStatusIcon} />
-        )}
+      <CardActions>
+        <IconButton
+          size="small"
+          color="secondary"
+          onClick={handleRemove}
+          aria-label="delete"
+        >
+          <Delete />
+        </IconButton>
+        <IconButton
+          size="small"
+          color="primary"
+          aria-label={book.is_public ? 'set private' : 'set public'}
+        >
+          {book.is_public ? <Visibility /> : <VisibilityOff />}
+        </IconButton>
       </CardActions>
     </Card>
   )

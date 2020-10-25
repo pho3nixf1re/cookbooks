@@ -36,7 +36,8 @@
     "test": "react-scripts test",
     "lint": "eslint . --ext js,jsx,ts,tsx",
     "eject": "react-scripts eject",
-    "format:check": "npx prettier --check \"**/*.{ts,tsx,js,json,css,scss}\""
+    "format:check": "npx prettier --check \"**/*.{ts,tsx,js,json,css,scss}\"",
+    "format:fix": "npx prettier --write \"**/*.{ts,tsx,js,json,css,scss}\""
   },
   "eslintConfig": {
     "extends": "react-app"

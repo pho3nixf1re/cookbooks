@@ -28,7 +28,6 @@ export function AppHeader() {
     logout({ returnTo: window.location.origin })
   }
 
-
   return (
     <AppBar position="static">
       <Toolbar>
