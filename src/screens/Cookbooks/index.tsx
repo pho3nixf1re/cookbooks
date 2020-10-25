@@ -4,8 +4,8 @@ import { AddCard } from '../../components/AddCard'
 import { AddCookbookDialog } from '../../components/AddCookbookDialog'
 import { CookbookCard } from '../../components/CookbookCard'
 import { ScreenLoading } from '../../components/ScreenLoading'
+import { useMyCookbooksQuery } from '../../hooks/data/use-my-cookbooks-query'
 import { useScreenTitle } from '../../states/screen-title'
-import { useMyCookbooksQuery } from './helpers'
 import { useStyles } from './styles'
 
 export function Cookbooks() {

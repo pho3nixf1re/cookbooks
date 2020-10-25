@@ -1,8 +1,8 @@
 import { useMutation } from '@apollo/client'
 import { useAuth0 } from '@auth0/auth0-react'
 import { v4 as guid } from 'uuid'
-import { Data as CookbooksQueryData } from '../../../../screens/Cookbooks/helpers/use-my-cookbooks-query'
-import { query as CookbooksQuery } from '../../../../screens/Cookbooks/helpers/use-my-cookbooks-query/query'
+import { Data as CookbooksQueryData } from '../use-my-cookbooks-query'
+import { query as CookbooksQuery } from '../use-my-cookbooks-query/query'
 import { query } from './mutation'
 
 type CreateCookbookOptions = {
